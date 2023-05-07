@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -25,7 +25,9 @@ import { RegisterComponent } from './register/register.component';
 import { ThecvComponent } from './thecv/thecv.component';
 import { FormcvComponent } from './formcv/formcv.component';
 import { GeneratorsComponent } from './generators/generators.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { AboutMeFormComponent } from './Forms/about-me-form/about-me-form.component';
 
 @NgModule({
   declarations: [
@@ -52,12 +54,17 @@ import { GeneratorsComponent } from './generators/generators.component';
     ThecvComponent,
     FormcvComponent,
     GeneratorsComponent,
-  
+    AboutMeFormComponent,
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

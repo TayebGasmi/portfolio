@@ -10,10 +10,10 @@ export class AppComponent implements OnInit{
   title = 'port-cv';
   constructor(private change:ChangeService){}
   ngOnInit(): void {
-    console.log(this.change.data)
+
   }
   data:{
-  
+
     age:number,
     email:any,
     phone:number,
@@ -23,12 +23,12 @@ export class AppComponent implements OnInit{
     education:any,
     portfolio:any,
     contact:any
-  
+
   }
-  
-  
- 
-  
-  
-  
+
+
+
+
+
+
 }
