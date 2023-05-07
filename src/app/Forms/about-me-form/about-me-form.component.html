@@ -1,0 +1,50 @@
+<div class="card" >
+  <div class="card-body">
+    <h5 class="card-title"><h1 class="text-center">About Me</h1> </h5>
+    <form class="form-group" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <label class="form-label" for="description">Descripbe Yourself</label>
+      <textarea [className]="form.get('description').invalid && (form.get('description').dirty || form.get('description').touched) ? 'form-control is-invalid':'form-control'"  id="description" rows="4" formControlName="description"></textarea>
+      <div  *ngIf="form.get('description').invalid && (form.get('description').dirty || form.get('description').touched)" class="invalid-feedback">
+        <div *ngIf="form.get('description').errors['required']">Description is required</div>
+      </div>
+      <h1 class="text-center">{{'basic information'|titlecase}} </h1>
+      <label class="form-label" for="age">age </label>
+      <input type="number" [className]="form.get('age').invalid && (form.get('age').dirty || form.get('age').touched) ? 'form-control is-invalid':'form-control'"  type="number" id="age" formControlName="age">
+      <div *ngIf="form.get('age').invalid && (form.get('age').dirty || form.get('age').touched)" class="invalid-feedback">
+        <div *ngIf="form.get('age').errors['required']">age is required</div>
+        <div *ngIf="form.get('age').errors['min']">age must be greater than 18</div>
+      </div>
+      <label class="form-label" for="email">email </label>
+      <input [className]="form.get('email').invalid && (form.get('email').dirty || form.get('email').touched) ? 'form-control is-invalid':'form-control'"  type="email" id="email" formControlName="email">
+      <div *ngIf="form.get('email').invalid && (form.get('email').dirty || form.get('email').touched)" class="invalid-feedback">
+        <div *ngIf="form.get('email').errors['required']">email is required</div>
+        <div *ngIf="form.get('email').errors['email']">email is not valid</div>
+      </div>
+      <label class="form-label" for="phone"> phone </label>
+      <input [className]="form.get('phone').invalid && (form.get('phone').dirty || form.get('phone').touched) ? 'form-control is-invalid':'form-control'"  type="number" id="phone" formControlName="phone">
+      <div *ngIf="form.get('phone').invalid && (form.get('phone').dirty || form.get('phone').touched)" class="invalid-feedback">
+        <div *ngIf="form.get('phone').errors['required']">phone is required</div>
+        <div *ngIf="form.get('phone').errors['pattern']">phone is not in a valid format</div>
+      </div>
+      <label class="form-label" for="address"> address </label>
+      <input [className]="form.get('address').invalid && (form.get('address').dirty || form.get('address').touched) ? 'form-control is-invalid':'form-control'"  type="text" id="address" formControlName="address">
+      <div *ngIf="form.get('address').invalid && (form.get('address').dirty || form.get('address').touched)" class="invalid-feedback">
+        <div *ngIf="form.get('address').errors['required']">address is required</div>
+      </div>
+      css
+
+      <label class="form-label" for="language">Language</label>
+      <select [className]="form.get('language').invalid && (form.get('language').dirty || form.get('language').touched) ? 'form-control is-invalid':'form-control'" id="language" formControlName="language">
+        <option value="">Select a language</option>
+        <option value="English">English</option>
+        <option value="Spanish">Spanish</option>
+        <option value="French">French</option>
+      </select>
+      <div *ngIf="form.get('language').invalid && (form.get('language').dirty || form.get('language').touched)" class="invalid-feedback">
+        <div *ngIf="form.get('language').errors['required']">Language is required</div>
+      </div>
+      <button class="btn btn-secondary mt-4 "  type="submit">add</button>
+    </form>
+  </div>
+  </div>
+<app-aboutmeone *ngIf="form.valid" [data]="form.value"></app-aboutmeone>
